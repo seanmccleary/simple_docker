@@ -1,0 +1,41 @@
+This is a really barebones PHP+MySQL docker setup.
+
+Make sure you have installed Docker for Mac or Windows (if you use either of
+those).  Seriously, get the "..for Mac" (or Windows) version, it comes with
+additional tools you'll need and doesn't rely on VirtualBox.
+
+To fire this up, run the following command:
+
+    docker-compose up
+
+That'll start it in "attached" mode where you later have to hit ctrl-c to
+stop everything.  If you prefer to run it in "detached mode" you can run:
+
+Put your PHP code in the "src" directory.  To view itin your browser, just
+go to http://localhost
+
+In your PHP code, you can use the following database credentials:
+
+    hostname: db_1
+    username: root
+    password: root
+
+If you want to connect directly to your database with a local tool, such as
+MySQL Workbench, you can use the following credentials:
+
+    hostname: localhost
+    username: root
+    password: root
+
+If for some reason you have to rebuild your PHP container, you can do so
+with the following commands:
+
+    docker images
+
+...look at the output to find the name of your image.  Probably it'll be
+yourproject_php
+
+    docker rm [name of your project]_1
+    docker rmi [name of your project]
+
+
